@@ -1,11 +1,14 @@
 # Use Cases
 
 We have three use cases in total:
-*UC1: Using Alarms
-*UC2: Listening to Radio
-*UC3: Setting Clock Time
+* UC1: Using Alarms
+* UC2: Listening to Radio
+* UC3: Setting Clock Time
 
 Two of them are "fully dressed" below:
+
+
+
 
 ## Use Case 1: Using Alarms
 **Scope**:
@@ -69,47 +72,53 @@ Two of them are "fully dressed" below:
   * If a time change occurs
 
 
-### Use Case 2: Listening to Radio
+## Use Case 2: Listening to Radio
 **Scope**:
   *Develop software to control a dual alarm AM/FM radio alarm clock*
 
-**Level**
+**Level**:
   *User Goal*
 
-**Actors**
+**Actors**:
   *User(s), Radio Station*
 
-**Stakeholders**
-  *User - Wants to listen to the radio*
-  *Radio Stations - Needs listeners*
+**Stakeholders**:
+  * User - Wants to listen to the radio*
+  * Radio Stations - Needs listeners*
 
-**Pre-Conditions**
+**Pre-Conditions**:
   *Radio can recieve transmissions and respond to software*
 
-**Success Guarantee**
+**Success Guarantee**:
   *The station is playing and user controlled*
 
-**Main Conditional**
+**Main Conditional**:
   1. The user turns the radio on
   2. The user specifies AM/FM Mode
   3. The Radio Station is played
 
-**Extensions**
+**Extensions**:
+
   1A. The radio plays the last station played
+
   3A. The user adjusts the station
+  
   3B. The user adjusts the volume
+  
   3C. The user switches between AM/FM mode
 
-**Special Requirements**
+
+
+**Special Requirements**:
   * User interface
   * Speaker
   * Radio maximum volume is lower than the alarm volume of the radio
 
-**Frequency of Occurrence**
+**Frequency of Occurrence**:
   *User triggered, could be continuous*
 
 **Miscellaneous Open Issues**
-  *If there are no available stations
+  * If there are no available stations
   
 
 

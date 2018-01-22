@@ -9,6 +9,7 @@ Two of them are "fully dressed" below:
 
 
 **Use Case Name** | Using Alarms
+------------------|--------------
 **Scope** | Develop Software to control a dual alarm AM/FM Radio Alarm Clock
 **Level** | User Goal
 **Actors** | User(s)

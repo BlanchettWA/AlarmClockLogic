@@ -1,6 +1,6 @@
 # Glossary
 
-**Alarm**: *an attention grabbing sound*
+**Alarm**: *An attention grabbing sound*
 
 **AM**: *Abbreviation for Amplitude Modulation, a type of radio signal the clock is able to receive*
 
@@ -12,7 +12,9 @@
 
 **Radio**: *An apparatus for receiving radio waves*
 
-**Snooze**: *a function that allows a user to delay an alarm*
+**Radio Station**: *A set frequency and band (AM/FM). Generally plays particular programming*
+
+**Snooze**: *A function that allows a user to delay an alarm*
 
 **Speaker**: *A device that converts electrical signals into sound waves*
 

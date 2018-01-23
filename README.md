@@ -7,6 +7,6 @@
 ## Supplementary Specifications:
 * Implemented in Java
    * Written with NetBeans
-   * Model Gui Created with SceneBuilder
+   * Model GUI Created with JavaFX (Possibly Using SceneBuilder)
 
 

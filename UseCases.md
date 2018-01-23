@@ -37,6 +37,14 @@ Two of them are "fully dressed" below:
   5. The user switches the alarm off.
 
 **Extensions**:
+ 
+  2A. Alarm time is already set for correct time
+    
+    1. Skip this step and continue with the main scenario 
+   
+  3A. Correct sounding method is already specified
+    
+    1. Skip this step and continue with the main scenario
 
   4A. Both alarms are set for the same time
   
@@ -83,8 +91,8 @@ Two of them are "fully dressed" below:
   *User(s), Radio Station*
 
 **Stakeholders**:
-  * User - Wants to listen to the radio*
-  * Radio Stations - Needs listeners*
+  *User - Wants to listen to the radio*
+  *Radio Stations - Needs listeners*
 
 **Pre-Conditions**:
   *Radio can recieve transmissions and respond to software*

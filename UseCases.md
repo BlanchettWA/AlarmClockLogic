@@ -5,11 +5,6 @@ We have three use cases in total:
 * UC2: Listening to Radio
 * UC3: Setting Clock Time
 
-Two of them are "fully dressed" below:
-
-
-
-
 ## Use Case 1: Using Alarms
 **Scope**:
   *Develop software to control a dual alarm AM/FM Radio Alarm Clock*
@@ -128,5 +123,46 @@ Two of them are "fully dressed" below:
 **Miscellaneous Open Issues**
   * If there are no available stations
   
+  
+## Use Case 3: Setting Clock Time
+**Scope:**
+*Develop software to control a dual alarm AM/FM radio alarm clock*
+
+**Level:**
+*User Goal*
+
+**Actors:**
+*User*
+
+**Stakeholders:**
+*User - wants to set the clock time*
+
+**Pre-Conditions:**
+*There is already some time set*
+
+**Success Guarantee**
+*The clock time is changed*
+
+**Main Conditional:**
+ 1. The user sets the clock to time setting mode
+ 2. The user sets the hours
+ 3. The user sets the minutes
+ 4. The user exits time setting mode. 
+ 
+ **Extensions** 
+ *None*
+ 
+ **Special Requirements**
+  * User Interface
+  * User has hands
+  * User is not blind
+  
+**Frequency of Occurrence**
+ * User Triggered
+
+**Open Issues**
+*None*
+  
+
 
 

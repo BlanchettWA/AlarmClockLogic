@@ -7,7 +7,7 @@ We have three use cases in total:
 
 ## Use Case 1: Using Alarms
 **Scope**:
-  *Develop software to control a dual alarm AM/FM Radio Alarm Clock*
+  *Software to control a dual alarm AM/FM Radio Alarm Clock*
   
 **Level**:
   *User Goal*
@@ -77,7 +77,7 @@ We have three use cases in total:
 
 ## Use Case 2: Listening to Radio
 **Scope**:
-  *Develop software to control a dual alarm AM/FM radio alarm clock*
+  *Software to control a dual alarm AM/FM radio alarm clock*
 
 **Level**:
   *User Goal*
@@ -126,7 +126,7 @@ We have three use cases in total:
   
 ## Use Case 3: Setting Clock Time
 **Scope:**
-*Develop software to control a dual alarm AM/FM radio alarm clock*
+*Software to control a dual alarm AM/FM radio alarm clock*
 
 **Level:**
 *User Goal*
@@ -150,7 +150,10 @@ We have three use cases in total:
  4. The user exits time setting mode. 
  
  **Extensions** 
- *None*
+  
+  4A. The user sets the wrong time.
+  
+    1. User returns clock to time setting mode and re-sets time.  
  
  **Special Requirements**
   * User Interface

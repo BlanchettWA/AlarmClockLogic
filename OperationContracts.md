@@ -46,7 +46,7 @@
 	* The system has exited "set clock" state if applicable.
 
 
-## Opertaion 4: specifySound
+## Operation 4: specifySound
 
 **Operation:** specifySound( opt: enum)
 

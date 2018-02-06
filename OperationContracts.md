@@ -1,6 +1,9 @@
 # Operation Contracts 
 
 ## Operation 1: setAlarmMode
+
+**Operation:** setAlarmMode()
+
 **Cross References:** Use Cases: Using Alarm
 
 **PreConditions:** 
@@ -12,6 +15,9 @@
 	* "Set alarm" state was enabled
 
 ## Operation 2: specifyAlarm
+
+**Operation:** specifyAlarm (al: enum)
+
 **Cross References:** Use Cases: Using Alarm
 
 **PreConditions:**
@@ -25,6 +31,9 @@
 
 
 ## Operation 3: specifyTime
+
+**Operation:** specifyTime(hour: int, minute: int)
+
 **Cross References:** Use Cases: Using Alarm, Setting Time
 
 **PreConditions:**
@@ -38,6 +47,9 @@
 
 
 ## Opertaion 4: specifySound
+
+**Operation:** specifySound( opt: enum)
+
 **Cross References:**  Use Cases: Using Alarm
 
 **PreConditions:**
@@ -51,6 +63,9 @@
 
 
 ## Operation 5: disableAlarm
+
+**Operation:** disableAlarm()
+
 **Cross References:** Use Cases: Using Alarm   
 
 **PreConditions:**
@@ -64,6 +79,9 @@
 
 
 ## Operation 6: startRadio
+
+**Operation:** startRadio()
+
 **Cross References:** Use Cases: Listening to radio
 
 **PreConditions:**
@@ -76,6 +94,9 @@
 
 
 ## Operation 7: changeRadioBand
+
+**Operation:** changeRadioBand()
+
 **Cross References:** Use Cases: Listening to Radio
 
 **PreConditions:**
@@ -88,6 +109,9 @@
 
 
 ## Operation 8: adjVolume
+
+**Operation:** adjVolume (direction :int)
+
 **Cross References:** Use Cases: Listening to Radio
 
 **PreConditions:**
@@ -100,6 +124,9 @@
 
 
 ## Operation 9: adjStation
+
+**Operation:** adjStation (freq: float)
+
 **Cross References:**  Use Cases: Listening to Radio
 
 **PreConditions:** 
@@ -112,6 +139,9 @@
 
 
 ## Operation 10: enableClocksetMode
+
+**Operation:** enableClocksetMode()
+
 **Cross References:** Use Cases: Setting Time
 
 **PreConditions:**

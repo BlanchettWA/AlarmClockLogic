@@ -4,32 +4,56 @@
 
 ### Attributes
 > Systime: Time
-Alarm1: Alarm
-Alarm2: Alarm
-Radio: Radio
+
+> Alarm1: Alarm
+
+> Alarm2: Alarm
+
+> Radio: Radio  
 
 ### Functions
 > compareTime(t1: Time, t2: Time)
-showTime()
+
+> showTime()
+
+> enableAlarmSet(alarm: int)
+
+> enableAlarm(alarm: int)
+
+> disableAlarm(alarm: int)
 
 ---------------------
 ## Alarm (Class)
 
 ### Attributes
 > triggerTime: Time
-snoozeTime: Time
-soundType: boolean (or enum)
-isEnabled: boolean
-isSnoozed: boolean
+
+> snoozeTime: Time
+
+> soundType: boolean (or enum)
+
+> isSnoozed: boolean
+
+> isEnabled: boolean
 
 ### Functions
 > triggerAlarm()
-quietAlarm()
-snooze()
-specifyTime(time: Time)
-enableAlarm()
-disableAlarm()
-getTriggerTime()
+
+> getStatus()
+
+> enableAlarm()
+
+> disableAlarm()
+
+> quietAlarm()
+
+> snooze()
+
+> specifyTime(time: Time)
+
+> specifySoundType(sound: boolean)
+
+> getTriggerTime()
 
 ---------------
 ## Radio (Class)
@@ -37,13 +61,16 @@ getTriggerTime()
 ### Attributes
 
 > frequency: float
-volume : int
+
+> volume : int
 
 
 ### Functions
 > getFrequency()
-adjustStation(dir: int)
-adjustVolume(dir: int)
+
+> adjustStation(dir: int)
+
+> adjustVolume(dir: int)
 
 ----------------
 ## Time (Class)
@@ -51,12 +78,19 @@ adjustVolume(dir: int)
 ### Attributes
 
 > hour: int
-minute: int
-dynamic: boolean
+
+> minute: int
+
+> dynamic: boolean
 
 ### Functions
 
 > getHour()
-getMinute()
-setHour(h: int)
-setMinute(m: int)
+
+> getMinute()
+
+> setHour(h: int)
+
+> setMinute(m: int)
+
+> getTime()

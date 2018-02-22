@@ -22,6 +22,20 @@
 
 > disableAlarm(alarm: int)
 
+> enableClockSetMode()
+
+> specifyTime(hour: int, minute: int)
+
+> snoozeAlarm()
+
+> stopAlarm()
+
+> adjustFrequency (direction: int)
+
+> toggleBand()
+
+> adjustVolume (direction: int)
+
 ---------------------
 ## Alarm (Class)
 
@@ -64,11 +78,17 @@
 
 > volume : int
 
+> 
+
 
 ### Functions
 > getFrequency()
 
 > adjustStation(dir: int)
+
+> adjustFrequency (dir: int)
+
+> toggleBand()
 
 > adjustVolume(dir: int)
 

@@ -78,7 +78,7 @@
 
 > volume : int
 
-> 
+> band: [undetermined]
 
 
 ### Functions
@@ -102,6 +102,8 @@
 > minute: int
 
 > dynamic: boolean
+
+> runner: Timer
 
 ### Functions
 

@@ -43,12 +43,12 @@ public class TimeTest {
     @Test
     public void testGetHour() {
         System.out.println("getHour");
-        Time instance = new Time();
+        Time instance = new Time(0,0);
         int expResult = 0;
         int result = instance.getHour();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -57,12 +57,12 @@ public class TimeTest {
     @Test
     public void testGetMinute() {
         System.out.println("getMinute");
-        Time instance = new Time();
+        Time instance = new Time(0,0);
         int expResult = 0;
         int result = instance.getMinute();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -71,11 +71,14 @@ public class TimeTest {
     @Test
     public void testSetHour() {
         System.out.println("setHour");
-        int h = 0;
-        Time instance = new Time();
+        int h = 2;
+        Time instance = new Time(0,0);
         instance.setHour(h);
+        int expResult = 2;
+        int result = instance.getHour();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -84,11 +87,14 @@ public class TimeTest {
     @Test
     public void testSetMinute() {
         System.out.println("setMinute");
-        int m = 0;
-        Time instance = new Time();
+        int m = 1;
+        Time instance = new Time(0,0);
         instance.setMinute(m);
+        int expResult = 1;
+        int result = instance.getMinute();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -97,12 +103,14 @@ public class TimeTest {
     @Test
     public void testGetTime() {
         System.out.println("getTime");
-        Time instance = new Time();
-        int[] expResult = null;
+        Time instance = new Time(4,20);
+        int[] expResult = new int[2];
+        expResult[0] = 4;
+        expResult[1] = 20;
         int[] result = instance.getTime();
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

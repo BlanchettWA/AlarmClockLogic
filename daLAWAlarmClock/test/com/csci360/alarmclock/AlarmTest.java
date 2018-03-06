@@ -37,11 +37,11 @@ public class AlarmTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSomeMethod() {
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of specifyTime method, of class Alarm.
@@ -54,7 +54,7 @@ public class AlarmTest {
         Alarm instance = new Alarm();
         instance.specifyTime(h, m);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -66,8 +66,9 @@ public class AlarmTest {
         boolean snd = false;
         Alarm instance = new Alarm();
         instance.specifySound(snd);
+        //I don't think we can test this
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -78,8 +79,10 @@ public class AlarmTest {
         System.out.println("enableAlarm");
         Alarm instance = new Alarm();
         instance.enableAlarm();
+        assertEquals(instance.getStatus(),true );
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -90,8 +93,9 @@ public class AlarmTest {
         System.out.println("disableAlarm");
         Alarm instance = new Alarm();
         instance.disableAlarm();
+        assertEquals(instance.getStatus(),false );
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -101,11 +105,14 @@ public class AlarmTest {
     public void testGetTriggerTime() {
         System.out.println("getTriggerTime");
         Alarm instance = new Alarm();
-        Time expResult = null;
-        Time result = instance.getTriggerTime();
-        assertEquals(expResult, result);
+        //getTriggerTime on Alarm class returns a Time object
+        //have to call getTime on Time objects to compare them here; I Think 
+        //-AJ
+        int[] expResult = new Time(5, 23).getTime();
+        int[] result = instance.getTriggerTime().getTime();
+        assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -119,7 +126,7 @@ public class AlarmTest {
         boolean result = instance.getStatus();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

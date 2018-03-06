@@ -42,5 +42,83 @@ public class AlarmClockTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of AlarmClock method, of class AlarmClock.
+     */
+    @Test
+    public void testAlarmClock() {
+        System.out.println("AlarmClock");
+        AlarmClock instance = new AlarmClock();
+        instance.AlarmClock();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of enableAlarmSet method, of class AlarmClock.
+     */
+    @Test
+    public void testEnableAlarmSet() {
+        System.out.println("enableAlarmSet");
+        int alm = 0;
+        AlarmClock instance = new AlarmClock();
+        instance.enableAlarmSet(alm);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of specifyTime method, of class AlarmClock.
+     */
+    @Test
+    public void testSpecifyTime() {
+        System.out.println("specifyTime");
+        int hr = 0;
+        int mn = 0;
+        AlarmClock instance = new AlarmClock();
+        instance.specifyTime(hr, mn);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of specifySound method, of class AlarmClock.
+     */
+    @Test
+    public void testSpecifySound() {
+        System.out.println("specifySound");
+        boolean snd = false;
+        AlarmClock instance = new AlarmClock();
+        instance.specifySound(snd);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of stopAlarm method, of class AlarmClock.
+     */
+    @Test
+    public void testStopAlarm() {
+        System.out.println("stopAlarm");
+        int alm = 0;
+        AlarmClock instance = new AlarmClock();
+        instance.stopAlarm(alm);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of snoozeAlarm method, of class AlarmClock.
+     */
+    @Test
+    public void testSnoozeAlarm() {
+        System.out.println("snoozeAlarm");
+        int alm = 0;
+        AlarmClock instance = new AlarmClock();
+        instance.snoozeAlarm(alm);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

@@ -6,8 +6,8 @@ package com.csci360.alarmclock;
 
 public class Time {
     
-    private int hour;
-    private int minute; 
+    private int hour = 0;
+    private int minute = 0; 
     
 public Time(int h, int m)
 {

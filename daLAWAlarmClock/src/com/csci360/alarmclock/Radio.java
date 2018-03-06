@@ -9,6 +9,11 @@ package com.csci360.alarmclock;
  *
  * @author Liam
  */
-public class Radio {
+public class Radio 
+{
+    private int volume;
+    private float freq;
+    private boolean amBand;
+    
     
 }

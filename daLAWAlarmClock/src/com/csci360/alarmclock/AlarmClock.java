@@ -5,7 +5,7 @@ This is a controller for the rest of the application
  */
 package com.csci360.alarmclock;
 
-import java.util.Date; 
+
 import java.util.Timer; 
 import java.util.TimerTask;
 
@@ -26,9 +26,9 @@ public class AlarmClock {
    
    private Alarm[] alarmArry;
    
-   public void AlarmClock()
+   public AlarmClock()
    {
-       System.out.println("Created");
+
         runner = new Timer();
         sysTime = new Time(4,20);
         
@@ -51,11 +51,9 @@ public class AlarmClock {
                 
                 //Printing time
                 int[] curTime = sysTime.getTime();
-                System.out.println(curTime[0] + ":" + curTime[1] + ":" + seconds);
                 
                 if (seconds == minLng) 
-                {
-                    
+                { 
                     runTime();
                     seconds = 0;    
                 }
@@ -115,7 +113,40 @@ public class AlarmClock {
    
    public void snoozeAlarm(int alm){}
    
-   
+   public String currentTime()
+  {
+    int[] timeArry = this.sysTime.getTime();
+    int fh = formatHour(timeArry[0]);
+    int fm = timeArry[1];
+    String meridan;
+
+    if (timeArry[0] < 12) {
+      meridan = " AM";
+    } else {
+      meridan = " PM";
+    }
+    String timeString = Integer.toString(fh) + ":" + Integer.toString(fm) + meridan;
+    return timeString;
+  }
+  
+  private int formatHour(int rawhr)
+  {
+    int formatted;
+    if (rawhr == 0)
+    {
+      formatted = 12;
+    }
+    else
+    {
+
+      if (rawhr > 12) {
+        formatted = rawhr % 12;
+      } else {
+        formatted = rawhr;
+      }
+    }
+    return formatted;
+  }
 }
 
 

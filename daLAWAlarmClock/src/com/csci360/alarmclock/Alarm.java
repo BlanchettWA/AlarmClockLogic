@@ -12,7 +12,7 @@ public class Alarm {
     
     private boolean enableState = false;
     
-    private boolean snoozeState = true;
+    private boolean snoozeState = false;
     
     public Alarm()
     {
@@ -35,7 +35,11 @@ public class Alarm {
     
     public void disableAlarm(){enableState = false;}
     
-    public Time getTriggerTime(){return triggerTime;}
+    public Time getTriggerTime()
+    {
+        if (snoozeState == true) { return snoozeTime; }
+        else { return triggerTime; }
+    }
     
     public boolean getStatus()
     {

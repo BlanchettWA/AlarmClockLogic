@@ -62,9 +62,11 @@ public class AlarmClock {
    }
        
    
-   public void alarmSet(int alm)
-   {
-       
+   public void alarmSet(int alm , int hr, int mn, boolean snd)
+   {     
+       alarmArry[alm].specifyTime(hr,mn);
+       alarmArry[alm].specifySound(snd);
+       alarmArry[alm].enableAlarm();
    }
    
    public void clockSet(int h, int m)

@@ -14,6 +14,7 @@ public class CommandLineUI {
                 + "\n 0 for current time "
                 + "\n 1 for help (this message) "
                 + "\n 2 for setting the system clock"
+                + "\n 3 for setting an alarm"
                 + "\n 666 for quit "
                 + "\n ";
         
@@ -25,6 +26,7 @@ public class CommandLineUI {
     System.out.println(helpMsg);
     while (run == true)
     {
+      System.out.print("Enter a function number (1 for help menu): ");
       int inp = keyboard.nextInt();
       switch (inp)
       {
@@ -101,6 +103,115 @@ public class CommandLineUI {
           sys.clockSet(inHr, inMn);
           System.out.println("The time has been set.");
           System.out.println();
+          break;
+      }
+      
+      case 3:
+      {
+          int inHr = 12;
+          int inMn = 0;
+          int inMr = 1;
+          int inSnd = 0;
+          int inAlm = 0;
+          boolean sd = true;
+          
+          boolean validHr = false;
+          boolean validMn = false;
+          boolean validMr = false;
+          boolean validinSnd = false;
+          boolean validAlm = false;
+          
+          while (!validAlm)
+          {
+              System.out.print("Select the alarm to set (1 or 2): ");
+              inAlm = keyboard.nextInt();
+              
+              if (inAlm == 1)
+              {
+                  inAlm = 0;
+                  validAlm = true;
+              }
+              else if (inAlm == 2)
+              {
+                  inAlm = 1;
+                  validAlm = true;
+              }
+              else {System.out.println("Please use a vaid input.");}
+              
+          }
+          
+          while (!validHr)
+          {
+            System.out.print("Enter the hour of the alarm: ");
+            inHr = keyboard.nextInt();
+          
+             if ((inHr > 0) && (inHr < 13))
+            {
+              validHr = true;
+            }
+             else {System.out.println("Please enter a valid hour.");}          
+          }
+          
+          
+          while (!validMn)
+          {
+              System.out.print("Enter the minute of the alarm: ");
+              inMn = keyboard.nextInt();
+              
+              if ((inMn > -1) && (inMn < 60))
+              {
+                  validMn = true;
+              }
+              else {System.out.println("Please enter a valid minute.");}
+          }
+          
+          
+          while (!validMr)
+          {
+              System.out.print("0 for AM and 1 for PM:");
+              inMr = keyboard.nextInt();
+              
+              if (inMr == 0)
+              {
+                  if (inHr == 12)
+                  {
+                      inHr = 0;
+                  }
+                  
+                  validMr = true;
+              }
+              
+              else if (inMr == 1)
+              {
+                  if (!(inHr == 12))
+                  {
+                      inHr += 12;
+                  }
+                  validMr = true;
+              }
+              else {System.out.println("Please enter a valid value");}
+          }
+          
+          while (!validinSnd)
+          {
+              System.out.println("0 for beep tone or 1 for radio alarm: ");
+              inSnd = keyboard.nextInt();
+              
+              if (inSnd == 0)
+              {
+                  sd = true;
+                  validinSnd = true;
+              }
+              else if (inSnd == 1)
+              {
+                  sd = false;
+                  validinSnd = true;
+              }
+              else {System.out.println("Please use a valid input.");}
+              
+          }
+          sys.alarmSet(inAlm, inHr, inMn, sd);
+          System.out.println("Alarm has been set.");
           break;
       }
       

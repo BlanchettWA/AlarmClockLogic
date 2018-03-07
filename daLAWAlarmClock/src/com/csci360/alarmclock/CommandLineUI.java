@@ -15,6 +15,7 @@ public class CommandLineUI {
                 + "\n 1 for help (this message) "
                 + "\n 2 for setting the system clock"
                 + "\n 3 for setting an alarm"
+                + "\n 4 for checking alarm info"
                 + "\n 666 for quit "
                 + "\n ";
         
@@ -212,6 +213,28 @@ public class CommandLineUI {
           }
           sys.alarmSet(inAlm, inHr, inMn, sd);
           System.out.println("Alarm has been set.");
+          break;
+      }
+      
+      case 4:
+      {
+          boolean validInp = false;
+          while (!validInp)
+          {
+              System.out.print("Select an alarm to view the time of (1 or 2): ");
+              int selAlm = keyboard.nextInt();
+              
+              if (selAlm == 1)
+              {System.out.println(sys.alarmInfo(0));
+              validInp = true;}
+              else if (selAlm == 2)
+              {
+                  System.out.println(sys.alarmInfo(1));
+              validInp = true;
+              }
+              else {System.out.println("Please enter a valid input.");}
+          }
+          System.out.println();
           break;
       }
       

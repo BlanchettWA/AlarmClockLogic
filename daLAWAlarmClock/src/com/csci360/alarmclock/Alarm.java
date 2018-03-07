@@ -31,6 +31,8 @@ public class Alarm {
         beepSound = snd;
     }
     
+    public boolean getSoundType(){return beepSound;}
+    
     public void enableAlarm(){enableState = true;}
     
     public void disableAlarm(){enableState = false;}

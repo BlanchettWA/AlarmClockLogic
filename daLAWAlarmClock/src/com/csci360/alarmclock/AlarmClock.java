@@ -75,10 +75,7 @@ public class AlarmClock {
        sysTime.setMinute(m);
    }
    
-   
-   public void specifyTime(int hr, int mn){}
-   
-   public void specifySound(boolean snd){}
+        
    
    private void runTime()
    {
@@ -123,8 +120,32 @@ public class AlarmClock {
    public void snoozeAlarm(int alm){}
    
    public String currentTime()
-  {
-    int[] timeArry = this.sysTime.getTime();
+   {
+    return formatTime(sysTime);
+  }
+   
+   public String alarmInfo(int alm)
+   {
+       String almTime = formatTime(alarmArry[alm].getTriggerTime());
+       
+       String alabel;
+       if (alm == 0){alabel = "Alarm 1: ";}
+       else {alabel = "Alarm 2: ";}
+       
+       String almste;
+       if (alarmArry[alm].getStatus()){almste = " | Enabled";}
+       else {almste = " | Disabled";}
+       
+       String snd;
+       if (alarmArry[alm].getSoundType()){snd = " | Beep";}
+       else {snd = " | Radio";}
+       
+       return alabel + almTime + snd + almste;
+   }
+   
+   public String formatTime(Time t)
+   {
+    int [] timeArry = t.getTime();
     int fh = formatHour(timeArry[0]);
     int fm = timeArry[1];
     String meridan;
@@ -140,9 +161,9 @@ public class AlarmClock {
     if (fm < 10){timeString = Integer.toString(fh) + ":0" + Integer.toString(fm) + meridan;}
     else{timeString = Integer.toString(fh) + ":" + Integer.toString(fm) + meridan;}
     
-    return timeString;
-  }
-  
+    return timeString;   
+   }
+   
   private int formatHour(int rawhr)
   {
     int formatted;

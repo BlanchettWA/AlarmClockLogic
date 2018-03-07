@@ -16,6 +16,9 @@ public class CommandLineUI {
                 + "\n 2 for setting the system clock"
                 + "\n 3 for setting an alarm"
                 + "\n 4 for checking alarm info"
+                + "\n 5 for enabling an alarm"
+                + "\n 6 for disabling an alarm"
+                + "\n 7 for stopping a ringing alarm"
                 + "\n 666 for quit "
                 + "\n ";
         
@@ -32,7 +35,7 @@ public class CommandLineUI {
       switch (inp)
       {
       case 0:{ 
-        String cT = sys.currentTime();
+        String cT = sys.getCurrentTime();
         System.out.println("The current time is " + cT);
         System.out.println();
         break;}
@@ -101,7 +104,7 @@ public class CommandLineUI {
               }
               else {System.out.println("Please enter a valid value");}
           }
-          sys.clockSet(inHr, inMn);
+          sys.setClock(inHr, inMn);
           System.out.println("The time has been set.");
           System.out.println();
           break;
@@ -211,7 +214,7 @@ public class CommandLineUI {
               else {System.out.println("Please use a valid input.");}
               
           }
-          sys.alarmSet(inAlm, inHr, inMn, sd);
+          sys.setAlarm(inAlm, inHr, inMn, sd);
           System.out.println("Alarm has been set.");
           break;
       }
@@ -225,11 +228,11 @@ public class CommandLineUI {
               int selAlm = keyboard.nextInt();
               
               if (selAlm == 1)
-              {System.out.println(sys.alarmInfo(0));
+              {System.out.println(sys.getAlarmInfo(0));
               validInp = true;}
               else if (selAlm == 2)
               {
-                  System.out.println(sys.alarmInfo(1));
+                  System.out.println(sys.getAlarmInfo(1));
               validInp = true;
               }
               else {System.out.println("Please enter a valid input.");}
@@ -242,6 +245,13 @@ public class CommandLineUI {
       {
         run = false;
         System.exit(0);
+      }
+      
+      default: 
+      {
+          System.out.println("That is an invalid option.");
+          System.out.println();
+          break;
       }
      }
     }

@@ -6,12 +6,13 @@ This is a controller for the rest of the application
 package com.csci360.alarmclock;
 
 
+import java.util.Observable;
 import java.util.Timer; 
 import java.util.TimerTask;
 
  
 
-public class AlarmClock {
+public class AlarmClock extends Observable {
     
    private final int minLng = 10;
    private  Timer runner;
@@ -25,6 +26,8 @@ public class AlarmClock {
    private  int seconds = 0;
    
    private Alarm[] alarmArry;
+   private boolean is1Alarming;
+   private boolean is2Alarming;
    
    public AlarmClock()
    {
@@ -62,14 +65,14 @@ public class AlarmClock {
    }
        
    
-   public void alarmSet(int alm , int hr, int mn, boolean snd)
+   public void setAlarm(int alm , int hr, int mn, boolean snd)
    {     
        alarmArry[alm].specifyTime(hr,mn);
        alarmArry[alm].specifySound(snd);
        alarmArry[alm].enableAlarm();
    }
    
-   public void clockSet(int h, int m)
+   public void setClock(int h, int m)
    {
        sysTime.setHour(h);
        sysTime.setMinute(m);
@@ -98,6 +101,7 @@ public class AlarmClock {
        
        sysTime.setHour(newHr);
        sysTime.setMinute(newMin);
+       this.checkAlarm();
    } 
    
    
@@ -115,16 +119,97 @@ public class AlarmClock {
        
    }
    
-   public void stopAlarm(int alm){}
+   private void checkAlarm()
+   {
+       if (alarmArry[0].getStatus())
+       {
+           Time trigTime = alarmArry[0].getTriggerTime();
+           
+           if (compareTime(trigTime,sysTime))
+           {
+               is1Alarming = true;
+               this.triggerAlarm(alarmArry[0]);
+           }
+       }
+       
+       if (alarmArry[1].getStatus())
+       {
+           Time trigTime = alarmArry[1].getTriggerTime();
+           
+           if (compareTime(trigTime,sysTime))
+           {
+               is2Alarming = true;
+               this.triggerAlarm(alarmArry[1]);
+           }
+       }
+       
+       
+   }
+   private void triggerAlarm(Alarm a)
+   {
+      setChanged();
+      notifyObservers();
+      if (a.getSoundType())
+      {
+          System.out.println("BEEP BEEP BEEP BEEP");
+            //Play built in sound, or equivalent alarm
+      }
+      else
+      {
+        System.out.println("INSERT BAD MUSIC HERE");
+        //Use the radio for the alarm going off.          
+      }
+   }
    
-   public void snoozeAlarm(int alm){}
+   //Can only work if the alarm is currently going off. This is intended
+   //for a graphical UI with buttons. Text interface is a bit....different. For now.
+   //Will be re-enabled once sound streaming is working. 
+   /**
+   public void stopAlarm(int alm)
+   {
+       if ((alm == 0) && is1Alarming)
+       {
+           is1Alarming = false;
+           alarmArry[alm].disableAlarm();
+       }
+       
+       if ((alm == 1) && is2Alarming)
+       {
+           is2Alarming = false;
+           alarmArry[alm].disableAlarm();
+       }
+   }
+   */
    
-   public String currentTime()
+   public void stopAlarm()
+   {
+       if (is1Alarming)
+       {
+           is1Alarming
+       }
+   }
+   
+   public void snoozeAlarm(int alm)
+   {
+       if ((alm == 0) && is1Alarming)
+       {
+           is1Alarming = false;
+           alarmArry[alm].snooze();
+       }
+       
+       if ((alm == 1) && is2Alarming)
+       {
+           is2Alarming = false;
+           alarmArry[alm].snooze();
+       }
+   }
+   
+   public String getCurrentTime()
    {
     return formatTime(sysTime);
   }
    
-   public String alarmInfo(int alm)
+   public String getAlarmInfo(int alm)
    {
        String almTime = formatTime(alarmArry[alm].getTriggerTime());
        

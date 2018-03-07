@@ -33,9 +33,13 @@ public class Alarm {
     
     public boolean getSoundType(){return beepSound;}
     
-    public void enableAlarm(){enableState = true;}
+    public void enableAlarm()
+    {enableState = true;
+    snoozeState = false;}
     
-    public void disableAlarm(){enableState = false;}
+    public void disableAlarm()
+    {enableState = false;
+    snoozeState = false;}
     
     public Time getTriggerTime()
     {
@@ -48,5 +52,11 @@ public class Alarm {
         return enableState;
     }
    
+    public void snooze()
+    {
+        //Add five minutes to triggerTime and copy it into SnoozeTime
+        //Check if the alarm was previously snoozed. IF yes, then pull the time from snoozeTime
+        //leave the alarm enabled. 
+    }
     
 }

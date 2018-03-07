@@ -62,10 +62,17 @@ public class AlarmClock {
    }
        
    
-   public void enableAlarmSet(int alm)
+   public void alarmSet(int alm)
    {
        
    }
+   
+   public void clockSet(int h, int m)
+   {
+       sysTime.setHour(h);
+       sysTime.setMinute(m);
+   }
+   
    
    public void specifyTime(int hr, int mn){}
    
@@ -125,7 +132,12 @@ public class AlarmClock {
     } else {
       meridan = " PM";
     }
-    String timeString = Integer.toString(fh) + ":" + Integer.toString(fm) + meridan;
+    
+    String timeString;
+    
+    if (fm < 10){timeString = Integer.toString(fh) + ":0" + Integer.toString(fm) + meridan;}
+    else{timeString = Integer.toString(fh) + ":" + Integer.toString(fm) + meridan;}
+    
     return timeString;
   }
   
@@ -147,6 +159,8 @@ public class AlarmClock {
     }
     return formatted;
   }
+
+
 }
 
 

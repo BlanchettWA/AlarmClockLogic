@@ -28,7 +28,7 @@ public class CommandLineUI {
         {
             if (sys.checkIfAlarming())
             {
-                System.out.println("ALARM (7 to stop. 8 to snooze) + ENTER ");
+                System.out.println("ALARM. (7 to stop. 8 to snooze) + ENTER ");
             }
         }
         },0,1000);

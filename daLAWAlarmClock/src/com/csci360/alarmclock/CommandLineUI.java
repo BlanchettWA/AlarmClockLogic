@@ -281,6 +281,13 @@ public class CommandLineUI {
           break;
       }
       
+      case 8:
+      {
+          //works for either alarm for now
+          sys.snoozeAlarm();
+          break;
+      }
+      
       case 666:
       {
         run = false;

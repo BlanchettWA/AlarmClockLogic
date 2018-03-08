@@ -128,5 +128,31 @@ public class AlarmTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getSoundType method, of class Alarm.
+     */
+    @Test
+    public void testGetSoundType() {
+        System.out.println("getSoundType");
+        Alarm instance = new Alarm();
+        boolean expResult = false;
+        boolean result = instance.getSoundType();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of snooze method, of class Alarm.
+     */
+    @Test
+    public void testSnooze() {
+        System.out.println("snooze");
+        Alarm instance = new Alarm();
+        instance.snooze();
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }

@@ -57,6 +57,25 @@ public class Alarm {
         //Add five minutes to triggerTime and copy it into SnoozeTime
         //Check if the alarm was previously snoozed. IF yes, then pull the time from snoozeTime
         //leave the alarm enabled. 
+        
+        //Make sure snoozeTime is set
+        
+        if (!snoozeState){
+            snoozeTime.setHour(triggerTime.getHour());
+            snoozeTime.setMinute(triggerTime.getMinute());
+        }
+        if (snoozeTime.getMinute() >= 55){
+            snoozeTime.setMinute(60 - (snoozeTime.getMinute() + 5));//handles near hour change
+            snoozeTime.setHour(snoozeTime.getHour() + 1);
+        }
+        else {
+            snoozeTime.setMinute(snoozeTime.getMinute() + 5);
+            
+        }
+        enableState = true;
+        snoozeState = true;
+                
     }
     
 }
+

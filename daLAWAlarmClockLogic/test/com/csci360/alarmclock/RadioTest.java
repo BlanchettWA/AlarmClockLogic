@@ -103,5 +103,47 @@ public class RadioTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getVolume method, of class Radio.
+     */
+    @Test
+    public void testGetVolume() {
+        System.out.println("getVolume");
+        Radio instance = new Radio();
+        int expResult = 0;
+        int result = instance.getVolume();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getBand method, of class Radio.
+     */
+    @Test
+    public void testGetBand() {
+        System.out.println("getBand");
+        Radio instance = new Radio();
+        String expResult = "";
+        String result = instance.getBand();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getFrequency method, of class Radio.
+     */
+    @Test
+    public void testGetFrequency() {
+        System.out.println("getFrequency");
+        Radio instance = new Radio();
+        float expResult = 0.0F;
+        float result = instance.getFrequency();
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

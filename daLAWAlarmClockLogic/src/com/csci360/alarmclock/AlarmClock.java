@@ -1,7 +1,5 @@
 /*
-Beginning clas file for Alarm Clock. 
-
-This is a controller for the rest of the application
+This is a controller for the rest of the application. 
  */
 package com.csci360.alarmclock;
 
@@ -29,6 +27,9 @@ public class AlarmClock {
    private boolean is1Alarming;
    private boolean is2Alarming;
    
+   
+   //Initialize alarms, start the timer running system clock. 
+   //Create a radio and
    public AlarmClock()
    {
 
@@ -87,6 +88,7 @@ public class AlarmClock {
    {
        alarmArry[alm].disableAlarm();
    }
+   
    private void runTime()
    {
        int[] ctime = sysTime.getTime();
@@ -153,6 +155,7 @@ public class AlarmClock {
        
        
    }
+   
    private void triggerAlarm(Alarm a)
    {
 
@@ -290,8 +293,6 @@ public class AlarmClock {
     }
     return formatted;
   }
-
-
 }
 
 

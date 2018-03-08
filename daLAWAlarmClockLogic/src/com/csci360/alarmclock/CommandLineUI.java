@@ -2,7 +2,7 @@
 A fill in for the UI that will run the clock through command line. 
 
 CHECKLIST OF THINGS TO IMPLEMENT: 
--Radio (EVERYTHING)
+- Radio (EVERYTHING)
  */
 package com.csci360.alarmclock;
 
@@ -11,9 +11,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class CommandLineUI {
-    
-    
-    
+       
     
     public static void main(String[] args) 
     {

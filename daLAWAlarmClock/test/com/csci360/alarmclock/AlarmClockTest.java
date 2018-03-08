@@ -215,5 +215,31 @@ public class AlarmClockTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of enableAlarm method, of class AlarmClock.
+     */
+    @Test
+    public void testEnableAlarm() {
+        System.out.println("enableAlarm");
+        int alm = 0;
+        AlarmClock instance = new AlarmClock();
+        instance.enableAlarm(alm);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of disableAlarm method, of class AlarmClock.
+     */
+    @Test
+    public void testDisableAlarm() {
+        System.out.println("disableAlarm");
+        int alm = 0;
+        AlarmClock instance = new AlarmClock();
+        instance.disableAlarm(alm);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

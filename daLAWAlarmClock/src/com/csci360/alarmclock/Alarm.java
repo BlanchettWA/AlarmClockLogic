@@ -43,7 +43,7 @@ public class Alarm {
     
     public Time getTriggerTime()
     {
-        if (snoozeState == true) { return snoozeTime; }
+        if (snoozeState) { return snoozeTime; }
         else { return triggerTime; }
     }
     
@@ -60,13 +60,17 @@ public class Alarm {
         
         //Make sure snoozeTime is set
         
-        if (!snoozeState){
+        if (!snoozeState)
+        {
             snoozeTime.setHour(triggerTime.getHour());
             snoozeTime.setMinute(triggerTime.getMinute());
         }
+        
         if (snoozeTime.getMinute() >= 55){
             snoozeTime.setMinute(60 - (snoozeTime.getMinute() + 5));//handles near hour change
+            
             snoozeTime.setHour(snoozeTime.getHour() + 1);
+            if (snoozeTime.getHour() > 23){snoozeTime.setHour(0);}
         }
         else {
             snoozeTime.setMinute(snoozeTime.getMinute() + 5);

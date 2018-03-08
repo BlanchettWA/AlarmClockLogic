@@ -78,8 +78,15 @@ public class AlarmClock {
        sysTime.setMinute(m);
    }
    
-        
+   public void enableAlarm(int alm)
+   {
+       alarmArry[alm].enableAlarm();
+   }
    
+   public void disableAlarm(int alm)
+   {
+       alarmArry[alm].disableAlarm();
+   }
    private void runTime()
    {
        int[] ctime = sysTime.getTime();
@@ -156,7 +163,7 @@ public class AlarmClock {
       }
       else
       {
-        System.out.println("INSERT BAD MUSIC HERE");
+        System.out.println("INSERTBAD MUSIC HERE");
         //Use the radio for the alarm going off.          
       }
    }
@@ -205,6 +212,7 @@ public class AlarmClock {
            //0
            alarmArry[0].snooze();
        }
+       else
        //for now I'm going to have to change this
        if (is2Alarming)
        {

@@ -2,9 +2,6 @@
 A fill in for the UI that will run the clock through command line. 
 
 CHECKLIST OF THINGS TO IMPLEMENT: 
--Snoozing an Alarm (UI, Logic, and Alarm)
--Enabling an Alarm (UI)
--Disabling an Alarm (UI)
 -Radio (EVERYTHING)
  */
 package com.csci360.alarmclock;
@@ -265,19 +262,58 @@ public class CommandLineUI {
       
       case 5:
       {
-          System.out.println("L8r");
+          boolean validInp = false;
+          while (!validInp)
+          {
+              System.out.print("Select an alarm to enable (1 or 2): ");
+              int selAlm = keyboard.nextInt();
+              
+              if (selAlm == 1)
+              {sys.enableAlarm(0);
+              validInp = true;
+              }
+              else if (selAlm == 2)
+              {
+                  sys.enableAlarm(1);;
+              validInp = true;
+              }
+              else {System.out.println("Please enter a valid input.");}
+              
+          }
+          System.out.println("The alarm has been enabled.");
+          System.out.println();
           break;
       }
       
       case 6:
       {
-          System.out.println("L8r");
+          boolean validInp = false;
+          while (!validInp)
+          {
+              System.out.print("Select an alarm to disable (1 or 2): ");
+              int selAlm = keyboard.nextInt();
+              
+              if (selAlm == 1)
+              {sys.disableAlarm(0);
+              validInp = true;
+              }
+              else if (selAlm == 2)
+              {
+              sys.disableAlarm(1);;
+              validInp = true;
+              }
+              else {System.out.println("Please enter a valid input.");}
+              
+          }
+          System.out.println("The alarm has been disabled.");
+          System.out.println();
           break;
       }
       
       case 7:
       {
           sys.stopAlarm();
+          System.out.println("The alarm has been turned off");
           break;
       }
       
@@ -285,6 +321,7 @@ public class CommandLineUI {
       {
           //works for either alarm for now
           sys.snoozeAlarm();
+          System.out.println("The alarm has been snoozed");
           break;
       }
       

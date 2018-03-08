@@ -125,6 +125,7 @@ public class AlarmClock {
        {
            Time trigTime = alarmArry[0].getTriggerTime();
            
+           
            if (compareTime(trigTime,sysTime))
            {
                is1Alarming = true;
@@ -195,18 +196,21 @@ public class AlarmClock {
        }
    }
    
-   public void snoozeAlarm(int alm)
+   public void snoozeAlarm()
    {
-       if ((alm == 0) && is1Alarming)
+       //not gonna differentiate
+       if (is1Alarming)
        {
            is1Alarming = false;
-           alarmArry[alm].snooze();
+           //0
+           alarmArry[0].snooze();
        }
-       
-       if ((alm == 1) && is2Alarming)
+       //for now I'm going to have to change this
+       if (is2Alarming)
        {
            is2Alarming = false;
-           alarmArry[alm].snooze();
+           //1
+           alarmArry[1].snooze();
        }
    }
    

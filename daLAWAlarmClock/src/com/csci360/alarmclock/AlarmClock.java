@@ -6,13 +6,13 @@ This is a controller for the rest of the application
 package com.csci360.alarmclock;
 
 
-import java.util.Observable;
+
 import java.util.Timer; 
 import java.util.TimerTask;
 
  
 
-public class AlarmClock extends Observable {
+public class AlarmClock {
     
    private final int minLng = 10;
    private  Timer runner;
@@ -147,8 +147,7 @@ public class AlarmClock extends Observable {
    }
    private void triggerAlarm(Alarm a)
    {
-      setChanged();
-      notifyObservers();
+
       if (a.getSoundType())
       {
           System.out.println("BEEP BEEP BEEP BEEP");
@@ -185,7 +184,14 @@ public class AlarmClock extends Observable {
    {
        if (is1Alarming)
        {
-           is1Alarming
+           is1Alarming = false;
+           alarmArry[0].disableAlarm();
+       }
+       
+       else if (is2Alarming)
+       {
+           is2Alarming = false;
+           alarmArry[1].disableAlarm();
        }
    }
    
@@ -208,6 +214,11 @@ public class AlarmClock extends Observable {
    {
     return formatTime(sysTime);
   }
+   
+   public boolean checkIfAlarming()
+   {
+       return (is1Alarming || is2Alarming);
+   }
    
    public String getAlarmInfo(int alm)
    {

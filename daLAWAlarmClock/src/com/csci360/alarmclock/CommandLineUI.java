@@ -1,15 +1,42 @@
 /*
 A fill in for the UI that will run the clock through command line. 
+
+CHECKLIST OF THINGS TO IMPLEMENT: 
+-Snoozing an Alarm (UI, Logic, and Alarm)
+-Enabling an Alarm (UI)
+-Disabling an Alarm (UI)
+-Radio (EVERYTHING)
  */
 package com.csci360.alarmclock;
 
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CommandLineUI {
     
     
+    
+    
     public static void main(String[] args) 
     {
+        boolean run = true;
+        Scanner keyboard = new Scanner(System.in);
+    
+        AlarmClock sys = new AlarmClock();
+        
+        Timer alarmChecker = new Timer();
+        alarmChecker.scheduleAtFixedRate(new TimerTask()
+        {public void run()
+        {
+            if (sys.checkIfAlarming())
+            {
+                System.out.println("ALARM (7 to stop. 8 to snooze) + ENTER ");
+            }
+        }
+        },0,1000);
+        
+        
         String helpMsg = "Use numbers to navigate the clock: "
                 + "\n 0 for current time "
                 + "\n 1 for help (this message) "
@@ -18,15 +45,10 @@ public class CommandLineUI {
                 + "\n 4 for checking alarm info"
                 + "\n 5 for enabling an alarm"
                 + "\n 6 for disabling an alarm"
-                + "\n 7 for stopping a ringing alarm"
                 + "\n 666 for quit "
                 + "\n ";
         
-        boolean run = true;
-        Scanner keyboard = new Scanner(System.in);
-    
-        AlarmClock sys = new AlarmClock();
-        
+
     System.out.println(helpMsg);
     while (run == true)
     {
@@ -224,7 +246,7 @@ public class CommandLineUI {
           boolean validInp = false;
           while (!validInp)
           {
-              System.out.print("Select an alarm to view the time of (1 or 2): ");
+              System.out.print("Select an alarm to view the info of (1 or 2): ");
               int selAlm = keyboard.nextInt();
               
               if (selAlm == 1)
@@ -238,6 +260,24 @@ public class CommandLineUI {
               else {System.out.println("Please enter a valid input.");}
           }
           System.out.println();
+          break;
+      }
+      
+      case 5:
+      {
+          System.out.println("L8r");
+          break;
+      }
+      
+      case 6:
+      {
+          System.out.println("L8r");
+          break;
+      }
+      
+      case 7:
+      {
+          sys.stopAlarm();
           break;
       }
       

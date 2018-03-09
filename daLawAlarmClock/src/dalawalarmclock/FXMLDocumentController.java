@@ -16,15 +16,22 @@ import javafx.scene.control.Label;
  *
  * @author Liam
  */
+
 public class FXMLDocumentController implements Initializable {
     
     @FXML
     private Label label;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private void volumeUp(ActionEvent event) {
+        System.out.println("volume up");
+        //label.setText("Hello World!");
+    }
+    
+    
+    public void volumeDown(ActionEvent event) {
+        System.out.println("volume down");
+        //label.setText("Hello World!");
     }
     
     @Override

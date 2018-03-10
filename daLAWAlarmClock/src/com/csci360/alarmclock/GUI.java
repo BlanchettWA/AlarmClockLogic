@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dalawalarmclock;
+package com.csci360.alarmclock;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +15,11 @@ import javafx.stage.Stage;
  *
  * @author Liam
  */
-public class DaLawAlarmClock extends Application {
+public class GUI extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GraphicalUIDesign.fxml"));
         
         Scene scene = new Scene(root);
         

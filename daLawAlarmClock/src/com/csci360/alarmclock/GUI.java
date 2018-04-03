@@ -10,6 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.event.Event;
+import javafx.event.EventType;
+
 
 /**
  *
@@ -17,15 +22,26 @@ import javafx.stage.Stage;
  */
 public class GUI extends Application {
     
+    Timer timeRunner;
+
+    
+    
+    
     @Override
     public void start(Stage stage) throws Exception {
+        //Initialize the display
         Parent root = FXMLLoader.load(getClass().getResource("GraphicalUIDesign.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.show();
-    }
+        
+        
+  
+        
+        
+        }
 
     /**
      * @param args the command line arguments

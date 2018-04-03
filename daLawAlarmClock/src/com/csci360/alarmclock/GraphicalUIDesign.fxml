@@ -6,76 +6,69 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dalawalarmclock.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.alarmclock.GraphicalUIController">
     <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="336.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="584.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffeca" height="144.0" layoutX="126.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="332.0" />
-        <Button fx:id="button" layoutX="529.0" layoutY="31.0" onAction="#volumeUp" prefHeight="17.0" prefWidth="6.0" text="↑" />
-      <Label layoutX="517.0" layoutY="5.0" text="Volume" textFill="#6de458">
+      <Rectangle fx:id="clockBackground" arcHeight="5.0" arcWidth="5.0" height="376.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="733.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffeca" height="144.0" layoutX="134.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="499.0" />
+        <Button fx:id="volUpButton" layoutX="18.0" layoutY="117.0" onAction="#volumeUp" prefHeight="17.0" prefWidth="6.0" text="↑" />
+      <Label layoutX="16.0" layoutY="88.0" text="Vol" textFill="#6de458">
          <font>
             <Font name="Lucida Sans Typewriter Regular" size="15.0" />
          </font></Label>
-      <Button fx:id="button1" layoutX="529.0" layoutY="73.0" onAction="#volumeDown" prefHeight="17.0" prefWidth="6.0" text="↓" />
-      <Label layoutX="14.0" layoutY="252.0" prefHeight="27.0" prefWidth="118.0" text="Alarm 1" textFill="#6de458">
+      <Button fx:id="volDownButton" layoutX="18.0" layoutY="155.0" onAction="#volumeDown" prefHeight="17.0" prefWidth="6.0" text="↓" />
+      <Label layoutX="29.0" layoutY="278.0" prefHeight="27.0" prefWidth="77.0" text="Alarm 1:" textFill="#6de458">
          <font>
             <Font name="Lucida Sans Typewriter Regular" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="161.0" layoutY="59.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" text="Snooze" />
-      <Button layoutX="306.0" layoutY="59.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" text="Off" AnchorPane.rightAnchor="160.0" />
-      <Label alignment="CENTER" layoutX="161.0" layoutY="108.0" prefHeight="120.0" prefWidth="263.0" text="4:20">
+      <Button fx:id="snoozeButton" layoutX="166.0" layoutY="72.0" mnemonicParsing="false" onAction="#snoozeAlarm" prefHeight="27.0" prefWidth="118.0" text="Snooze" />
+      <Button fx:id="alarmOffButton" layoutX="480.0" layoutY="72.0" mnemonicParsing="false" onAction="#silenceAlarm" prefHeight="27.0" prefWidth="118.0" text="Silence Alarm" AnchorPane.rightAnchor="135.33333333333337" />
+      <Label fx:id="timeLabel" alignment="CENTER" layoutX="135.0" layoutY="111.0" prefHeight="141.0" prefWidth="414.0" text="4:20 AM">
          <font>
             <Font size="96.0" />
          </font>
       </Label>
-      <Label layoutX="426.0" layoutY="100.0" text="FM" />
-      <Label layoutX="388.0" layoutY="100.0" prefHeight="17.0" prefWidth="30.0" text="92.9" />
-      <Label layoutX="14.0" layoutY="285.0" prefHeight="27.0" prefWidth="77.0" text="Alarm 2" textFill="#6de458">
+      <Label fx:id="bandLabel" layoutX="598.0" layoutY="121.0" text="FM" />
+      <Label fx:id="freqLabel" layoutX="554.0" layoutY="121.0" prefHeight="17.0" prefWidth="30.0" text="92.9" />
+      <Label layoutX="29.0" layoutY="311.0" prefHeight="27.0" prefWidth="77.0" text="Alarm 2:" textFill="#6de458">
          <font>
             <Font name="Lucida Sans Typewriter Regular" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="button2" layoutX="96.0" layoutY="252.0" prefHeight="27.0" prefWidth="43.0" text="On" />
-      <Button fx:id="button21" layoutX="96.0" layoutY="285.0" prefHeight="27.0" prefWidth="43.0" text="On" />
-      <Button fx:id="button22" layoutX="148.0" layoutY="252.0" prefHeight="27.0" prefWidth="43.0" text="Set" />
-      <Button fx:id="button221" layoutX="148.0" layoutY="285.0" prefHeight="27.0" prefWidth="43.0" text="Set" />
-      <Label layoutX="338.0" layoutY="252.0" prefHeight="27.0" prefWidth="77.0" text="Set Time" textFill="#6de458">
-         <font>
-            <Font name="Lucida Sans Typewriter Regular" size="15.0" />
-         </font>
-      </Label>
-      <Button fx:id="button3" layoutX="421.0" layoutY="252.0" onAction="#volumeUp" prefHeight="27.0" prefWidth="29.0" />
-      <Label layoutX="479.0" layoutY="285.0" prefHeight="27.0" prefWidth="77.0" text="Minute" textFill="#6de458">
-         <font>
-            <Font name="Lucida Sans Typewriter Regular" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="479.0" layoutY="252.0" prefHeight="27.0" prefWidth="77.0" text="Hour" textFill="#6de458">
-         <font>
-            <Font name="Lucida Sans Typewriter Regular" size="15.0" />
-         </font>
-      </Label>
-      <Button fx:id="button31" layoutX="542.0" layoutY="252.0" onAction="#volumeUp" prefHeight="27.0" prefWidth="29.0" />
-      <Button fx:id="button311" layoutX="542.0" layoutY="285.0" onAction="#volumeUp" prefHeight="27.0" prefWidth="29.0" />
-      <Label layoutX="338.0" layoutY="285.0" prefHeight="27.0" prefWidth="77.0" text="Confirm" textFill="#6de458">
-         <font>
-            <Font name="Lucida Sans Typewriter Regular" size="15.0" />
-         </font>
-      </Label>
-      <Button fx:id="button32" layoutX="421.0" layoutY="285.0" onAction="#volumeUp" prefHeight="27.0" prefWidth="29.0" />
+      <Button fx:id="alarm1ToggleButton" layoutX="198.0" layoutY="278.0" onAction="#toggleAlarmOne" prefHeight="27.0" prefWidth="70.0" text="On/Off" />
+      <Button fx:id="alarm2ToggleButton" layoutX="198.0" layoutY="311.0" onAction="#togleAlarmTwo" prefHeight="27.0" prefWidth="70.0" text="On/Off" />
+      <Button fx:id="setAlarm1Button" layoutX="284.0" layoutY="278.0" onAction="#setAlarmOne" prefHeight="27.0" prefWidth="43.0" text="Set" />
+      <Button fx:id="setAlarm2Button" layoutX="284.0" layoutY="311.0" onAction="#setAlarmTwo" prefHeight="27.0" prefWidth="43.0" text="Set" />
+      <Button fx:id="sysTimeSetButton" layoutX="615.0" layoutY="8.0" onAction="#setSysTime" prefHeight="40.0" prefWidth="109.0" text="Set System Time" />
       <Label layoutX="6.0" layoutY="1.0" prefHeight="27.0" prefWidth="55.0" text="AM/FM" textFill="#6de458">
          <font>
             <Font name="Lucida Sans Typewriter Regular" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="1.0" prefHeight="27.0" prefWidth="70.0" text="Station" textFill="#6de458">
+      <Label layoutX="56.0" layoutY="84.0" prefHeight="27.0" prefWidth="70.0" text="Station" textFill="#6de458">
          <font>
             <Font name="Lucida Sans Typewriter Regular" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="button33" layoutX="14.0" layoutY="24.0" onAction="#volumeUp" prefHeight="27.0" prefWidth="29.0" />
-      <Button fx:id="button4" layoutX="58.0" layoutY="24.0" onAction="#volumeUp" prefHeight="17.0" prefWidth="6.0" text="←" />
-      <Button fx:id="button41" layoutX="96.0" layoutY="24.0" onAction="#volumeUp" prefHeight="17.0" prefWidth="6.0" text="→" />
+      <Button fx:id="toggleBandButton" layoutX="14.0" layoutY="24.0" onAction="#bandToggle" prefHeight="27.0" prefWidth="29.0" />
+      <Button fx:id="stationUpButton" layoutX="73.0" layoutY="117.0" onAction="#stationUp" prefHeight="17.0" prefWidth="6.0" text="↑" />
+      <Button fx:id="stationDownButton" layoutX="73.0" layoutY="154.0" onAction="#stationDown" prefHeight="17.0" prefWidth="6.0" text="↓" />
+      <Label fx:id="alarm1Label" layoutX="110.0" layoutY="278.0" prefHeight="27.0" prefWidth="77.0" text="12:00 pm" textFill="#6de458">
+         <font>
+            <Font name="Lucida Sans Typewriter Regular" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="alarm2Label" layoutX="110.0" layoutY="311.0" prefHeight="27.0" prefWidth="77.0" text="12:05 pm" textFill="#6de458">
+         <font>
+            <Font name="Lucida Sans Typewriter Regular" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="radioPower" layoutX="122.0" layoutY="24.0" onAction="#radioPower" prefHeight="27.0" prefWidth="29.0" />
+      <Label layoutX="82.0" layoutY="1.0" prefHeight="27.0" prefWidth="109.0" text="Radio On/Off" textFill="#6de458">
+         <font>
+            <Font name="Lucida Sans Typewriter Regular" size="15.0" />
+         </font>
+      </Label>
 
     </children>
 </AnchorPane>

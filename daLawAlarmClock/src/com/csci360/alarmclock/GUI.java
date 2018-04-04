@@ -11,9 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.Timer;
-import java.util.TimerTask;
-import javafx.event.Event;
-import javafx.event.EventType;
 
 
 /**

@@ -10,6 +10,7 @@ package com.csci360.alarmclock;
  * An alarming function needs to happen. 
  */
 
+
 import java.util.Timer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import java.util.TimerTask;
 import javafx.application.Platform;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 
 
 
@@ -29,6 +33,16 @@ public class GraphicalUIController {
         
         public void initialize()
         {
+            //Initialize the display labels
+            Platform.runLater(() -> 
+            {
+                freqLabel.setText(sys.getRadioFreq());
+                timeLabel.setText(sys.getCurrentTime());
+                radioPowerLight.setFill(Color.BLACK);
+            
+            
+            });
+            
             syst = new Timer();
             syst.scheduleAtFixedRate(new TimerTask()
             {
@@ -91,7 +105,17 @@ public class GraphicalUIController {
 
     @FXML
     private Label alarm2Label;
+    
+    @FXML
+    private Rectangle alarm1Light;
 
+    @FXML
+    private Rectangle alarm2Light;
+
+    @FXML
+    private Rectangle radioPowerLight;
+
+    
     @FXML
     void volumeDown(ActionEvent event) 
     {
@@ -109,17 +133,40 @@ public class GraphicalUIController {
     @FXML
     void bandToggle(ActionEvent event)
     {
-        System.out.println("Toggled the radio band");
+        sys.toggleRadioBand();
+        Platform.runLater(() -> {
+            bandLabel.setText(sys.getRadioBand());
+        freqLabel.setText(sys.getRadioFreq());});
     }
     
     @FXML
-    void radioPower(ActionEvent event){System.out.println("Toggled the radio power");}
+    void radioPower(ActionEvent event){
+        sys.toggleRadioPower();
+        
+        Platform.runLater(() -> 
+        {
+            Paint curColor = radioPowerLight.getFill();
+            
+            if (curColor == Color.BLACK){radioPowerLight.setFill(Color.GREEN);}
+                else{radioPowerLight.setFill(Color.BLACK);}
+        
+        });
+        //Adjust display to signal the radio is on
+    }
     
     @FXML
-    void stationUp(ActionEvent event){System.out.println("Pressed the station up");}
+    void stationUp(ActionEvent event){
+        sys.adjustRadioFreq(10);
+        Platform.runLater(() -> {freqLabel.setText(sys.getRadioFreq());});
+
+    }
+    
     
     @FXML
-    void stationDown(ActionEvent event){System.out.println("Pressed the station down");}
+    void stationDown(ActionEvent event){
+        sys.adjustRadioFreq(-10);
+        Platform.runLater(() -> {freqLabel.setText(sys.getRadioFreq());});
+    }
     
     @FXML
     void setSysTime(ActionEvent event){System.out.println("Asked to set the system time");}

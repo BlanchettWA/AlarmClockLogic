@@ -64,6 +64,26 @@ public class AlarmClock {
             }
         },0, 1000);  //period b/w incrementations = 1000 ms
    }
+   
+       public void toggleRadioPower()
+    {
+        radio.togglePower();
+    }
+       
+       public void adjustRadioFreq(int direction)
+       {
+           radio.adjustFrequency(direction);
+       }
+       
+       public void toggleRadioBand()
+       {
+           radio.toggleBand();
+       }
+       
+       public String getRadioBand()
+       {
+           return radio.getBand();
+       }
        
    
    public void setAlarm(int alm , int hr, int mn, boolean snd)
@@ -113,6 +133,7 @@ public class AlarmClock {
        this.checkAlarm();
    } 
    
+   public String getRadioFreq(){return Float.toString(radio.getFrequency());}
    
    private boolean compareTime(Time t1, Time t2)
    {

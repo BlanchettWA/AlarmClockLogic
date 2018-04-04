@@ -23,6 +23,8 @@ public class Radio
     {
         volume = 5;
         amBand = false;
+        fmFreq = (float) 94.5;
+        amFreq = 750;
         isPlaying = false;
         
     };
@@ -43,6 +45,7 @@ public class Radio
             if (volume > 10){volume = 10;}
         }
     };
+    
     
     public int getVolume()
     {
@@ -70,13 +73,13 @@ public class Radio
             {
                 amFreq -= 10;
                 
-                if (amFreq < 800){amFreq = 800;}
+                if (amFreq < 540){amFreq = 540;}
             }
             else
             {
                 amFreq += 10;
                 
-                if (amFreq > 1700){amFreq = 1700;}
+                if (amFreq > 1600){amFreq = 1600;}
             }
             
             
@@ -128,5 +131,9 @@ public class Radio
         isPlaying = false;
     };
     
-    
+    public void togglePower()
+    {
+        if (isPlaying){stopRadio();}
+        else {startRadio();}
+    }
 }

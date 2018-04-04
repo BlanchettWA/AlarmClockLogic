@@ -10,6 +10,9 @@ package com.csci360.alarmclock;
  * An alarming function needs to happen. 
  */
 
+//TODO: Fix frequency refresh on band toggle
+//TODO: truncate extra float on freq display
+
 
 import java.util.Timer;
 import javafx.event.ActionEvent;
@@ -25,13 +28,16 @@ import javafx.scene.shape.Rectangle;
 
 
 
+
 public class GraphicalUIController {
     
         AlarmClock sys = new AlarmClock();
         Timer syst;
         int seconds = 0;
         
-        public void initialize()
+
+        
+        public void initialize() throws Exception
         {
             //Initialize the display labels
             Platform.runLater(() -> 
@@ -39,6 +45,8 @@ public class GraphicalUIController {
                 freqLabel.setText(sys.getRadioFreq());
                 timeLabel.setText(sys.getCurrentTime());
                 radioPowerLight.setFill(Color.BLACK);
+                alarm1Label.setText(sys.getAlarmTime(0));
+                alarm2Label.setText(sys.getAlarmTime(1));
             
             
             });
@@ -52,6 +60,10 @@ public class GraphicalUIController {
                     Platform.runLater(() -> {timeLabel.setText(sys.getCurrentTime());});
                 }
             }, 0, 1000);
+            
+           
+                        
+            
         };
     
     //Declare all elements of the GUI that will be used 
@@ -169,13 +181,35 @@ public class GraphicalUIController {
     }
     
     @FXML
-    void setSysTime(ActionEvent event){System.out.println("Asked to set the system time");}
+    void setSysTime(ActionEvent event)
+    {
+       int[] rst = TimePopup.display("Set the System Time",sys.getTimeArray());
+            
+            sys.setClock(rst[0], rst[1]);
+            
+            Platform.runLater(()-> {timeLabel.setText(sys.getCurrentTime());});
+        
+
+    }
     
     @FXML
-    void setAlarmOne(ActionEvent event){System.out.println("Asked to set Alarm One Time");}
+    void setAlarmOne(ActionEvent event){
+        Object[] rst = AlarmSetPopup.display("Set Alarm 1 Time",sys.getAlarmTimeArray(0));
+        
+        sys.setAlarm(0, (int) rst[0], (int) rst[1], (boolean) rst[2]);
+        
+        Platform.runLater(()-> {alarm1Label.setText(sys.getAlarmTime(0));});
+    }
     
     @FXML
-    void setAlarmTwo(ActionEvent event){System.out.println("Asked to set Alarm Two time");}
+    void setAlarmTwo(ActionEvent event)
+    {
+        Object[] rst = AlarmSetPopup.display("Set Alarm 2 Time",sys.getAlarmTimeArray(1));
+        
+        sys.setAlarm(1, (int) rst[0], (int) rst[1], (boolean) rst[2]);
+        
+        Platform.runLater(()-> {alarm2Label.setText(sys.getAlarmTime(1));});
+    }
     
     @FXML
     void toggleAlarmOne(ActionEvent event){System.out.println("Toggled the alarm one setting");}
@@ -189,9 +223,6 @@ public class GraphicalUIController {
     @FXML
     void snoozeAlarm(ActionEvent event){System.out.println("snoozed the alarm");}
     
-    
-  
    
-    
-
-}
+        
+    }

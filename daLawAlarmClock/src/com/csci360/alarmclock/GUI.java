@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.util.Timer;
 
 
 /**
@@ -18,9 +17,6 @@ import java.util.Timer;
  * @author Liam
  */
 public class GUI extends Application {
-    
-    Timer timeRunner;
-
     
     
     

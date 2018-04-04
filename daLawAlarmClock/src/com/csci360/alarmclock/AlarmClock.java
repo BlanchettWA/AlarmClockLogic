@@ -109,6 +109,11 @@ public class AlarmClock {
        alarmArry[alm].disableAlarm();
    }
    
+   public int[] getTimeArray()
+   {
+       return sysTime.getTime();
+   }
+   
    private void runTime()
    {
        int[] ctime = sysTime.getTime();
@@ -149,7 +154,7 @@ public class AlarmClock {
        
    }
    
-   private void checkAlarm()
+   private void monitorAlarm()
    {
        if (alarmArry[0].getStatus())
        {
@@ -177,6 +182,36 @@ public class AlarmClock {
        
    }
    
+      public boolean checkAlarm()
+   {
+       boolean result = false;
+       if (alarmArry[0].getStatus())
+       {
+           Time trigTime = alarmArry[0].getTriggerTime();
+           
+           
+           if (compareTime(trigTime,sysTime))
+           {
+               is1Alarming = true;
+               result = true;
+           }
+       }
+       
+       if (alarmArry[1].getStatus())
+       {
+           Time trigTime = alarmArry[1].getTriggerTime();
+           
+           if (compareTime(trigTime,sysTime))
+           {
+               is2Alarming = true;
+               result = true;
+           }
+       }
+       
+       return result;
+   }
+   
+   
    private void triggerAlarm(Alarm a)
    {
 
@@ -195,7 +230,7 @@ public class AlarmClock {
    //Can only work if the alarm is currently going off. This is intended
    //for a graphical UI with buttons. Text interface is a bit....different. For now.
    //Will be re-enabled once sound streaming is working. 
-   /**
+   
    public void stopAlarm(int alm)
    {
        if ((alm == 0) && is1Alarming)
@@ -210,7 +245,7 @@ public class AlarmClock {
            alarmArry[alm].disableAlarm();
        }
    }
-   */
+   
    
    public void stopAlarm()
    {
@@ -274,6 +309,22 @@ public class AlarmClock {
        
        return alabel + almTime + snd + almste;
    }
+   
+   public int[] getAlarmTimeArray(int alm)
+   {
+       Alarm selAm = alarmArry[alm];
+       Time selTm = selAm.getTriggerTime();
+       
+       return selTm.getTime();
+   }
+   
+   public String getAlarmTime(int alm)
+   {
+       Alarm selAm = alarmArry[alm];
+       Time alTm = selAm.getTriggerTime();
+       return formatTime(alTm);   
+   }
+   
    
    public String formatTime(Time t)
    {

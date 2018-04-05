@@ -112,6 +112,7 @@ public class AlarmClock {
    public boolean getAlarmState(int alarm)
    {
        return alarmArry[alarm].getStatus();
+       //small change
    }
    
    public int[] getTimeArray()

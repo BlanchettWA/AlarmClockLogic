@@ -250,7 +250,7 @@ public class GraphicalUIController {
     @FXML
     void snoozeAlarm(ActionEvent event){
         sys.snoozeAlarm();
-        //view action here
+        //view action here.
         //System.out.println("snoozed the alarm");
     }
     

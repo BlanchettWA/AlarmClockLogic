@@ -212,16 +212,47 @@ public class GraphicalUIController {
     }
     
     @FXML
-    void toggleAlarmOne(ActionEvent event){System.out.println("Toggled the alarm one setting");}
+            //to set the alarm to go off or on
+            //cant tell if alarm is enabled or not
+    void toggleAlarmOne(ActionEvent event){
+        if (!sys.getAlarmState(0)){
+            sys.enableAlarm(0);
+            //view action here
+        }
+        else{
+            sys.disableAlarm(0);
+            //view action here
+        }
+        //System.out.println("Toggled the alarm one setting");
+    }
     
     @FXML
-    void togleAlarmTwo(ActionEvent event){System.out.println("Toggled the alarm two setting");}
+            //misspelled but works
+    void togleAlarmTwo(ActionEvent event){
+        if (!sys.getAlarmState(1)){
+            sys.enableAlarm(1);
+            //view action here
+        }
+        else{
+            sys.disableAlarm(1);
+            //view action here
+        }
+        //System.out.println("Toggled the alarm two setting");
+    }
     
     @FXML
-    void silenceAlarm(ActionEvent event){System.out.println("TOLD THE ALARM TO SHUT UP");}
+    void silenceAlarm(ActionEvent event){
+        sys.stopAlarm();
+        //view action here
+        //System.out.println("TOLD THE ALARM TO SHUT UP");
+    }
     
     @FXML
-    void snoozeAlarm(ActionEvent event){System.out.println("snoozed the alarm");}
+    void snoozeAlarm(ActionEvent event){
+        sys.snoozeAlarm();
+        //view action here
+        //System.out.println("snoozed the alarm");
+    }
     
    
         

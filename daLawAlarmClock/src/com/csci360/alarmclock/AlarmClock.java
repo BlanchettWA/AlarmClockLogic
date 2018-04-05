@@ -109,6 +109,11 @@ public class AlarmClock {
        alarmArry[alm].disableAlarm();
    }
    
+   public boolean getAlarmState(int alarm)
+   {
+       return alarmArry[alarm].getStatus();
+   }
+   
    public int[] getTimeArray()
    {
        return sysTime.getTime();

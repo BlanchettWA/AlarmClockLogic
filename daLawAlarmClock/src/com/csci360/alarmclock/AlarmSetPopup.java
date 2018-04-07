@@ -74,15 +74,12 @@ selSnd.setItems(possibleSound);
 
       
      
-Button cancelButton = new Button("Cancel");
-
-Button confirmButton = new Button("Confirm");
-     
+Button doneButton = new Button("Done");
 
      
-cancelButton.setOnAction(e -> pW.close());
 
-confirmButton.setOnAction(e -> pW.close());
+     
+doneButton.setOnAction(e -> pW.close());
 
 selHr.setValue(hr);
 selMn.setValue(mn);
@@ -95,7 +92,7 @@ else{selMer.setValue("AM");}
 VBox layout = new VBox(10);
      
       
-layout.getChildren().addAll(label1,selHr,selMn,selMer,cancelButton,confirmButton);
+layout.getChildren().addAll(label1,selHr,selMn,selMer,selSnd,doneButton);
       
 layout.setAlignment(Pos.CENTER);
       

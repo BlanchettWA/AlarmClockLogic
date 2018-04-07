@@ -69,9 +69,9 @@
             <Font name="Lucida Sans Typewriter Regular" size="15.0" />
          </font>
       </Label>
-      <Rectangle fx:id="alarm1Light" arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="14.0" layoutY="282.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-      <Rectangle fx:id="alarm2Light" arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="14.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-      <Rectangle fx:id="radioPowerLight" arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="106.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+      <Rectangle fx:id="alarm1Light" arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="14.0" layoutY="282.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
+      <Rectangle fx:id="alarm2Light" arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="14.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
+      <Rectangle fx:id="radioPowerLight" arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="106.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
 
     </children>
 </AnchorPane>

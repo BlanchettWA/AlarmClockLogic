@@ -75,6 +75,11 @@ public class AlarmClock {
            radio.adjustFrequency(direction);
        }
        
+       public void adjustRadioVol(int dir)
+       {
+           radio.adjustVolume(dir);
+       }
+       
        public void toggleRadioBand()
        {
            radio.toggleBand();
@@ -258,13 +263,15 @@ public class AlarmClock {
        if (is1Alarming)
        {
            is1Alarming = false;
-           alarmArry[0].disableAlarm();
+//Disabled this because it messes with the gui        
+//   alarmArry[0].disableAlarm();
        }
        
        else if (is2Alarming)
        {
            is2Alarming = false;
-           alarmArry[1].disableAlarm();
+           
+          // alarmArry[1].disableAlarm();
        }
    }
    

@@ -6,6 +6,9 @@
 package com.csci360.alarmclock;
 
 //FM 88.00 to 108.00
+
+import java.text.DecimalFormat;
+
 //AM 540 to 1700
 
 //AM frequencies are ints
@@ -44,6 +47,7 @@ public class Radio
             
             if (volume > 10){volume = 10;}
         }
+        System.out.println("Volume is now " + volume);
     };
     
     
@@ -109,11 +113,11 @@ public class Radio
     {
         if (amBand)
         {
-            return (float) amFreq;
+            return roundTwoDecimals((float) amFreq);
         }
         else
         {
-            return fmFreq;
+            return roundTwoDecimals(fmFreq);
         }
     }
     
@@ -136,4 +140,20 @@ public class Radio
         if (isPlaying){stopRadio();}
         else {startRadio();}
     }
+    
+    public boolean getRadioState()
+    {
+        return isPlaying;
+    }
+    
+    
+    //Code borrowed from https://www.quora.com/How-do-I-truncate-float-up-to-two-decimal-points-in-Java 
+    //For rounding the frequency decimals
+    
+    float roundTwoDecimals(float d)
+ {
+    DecimalFormat twoDForm = new DecimalFormat("#.##");
+ 
+    return Float.valueOf(twoDForm.format(d)); 
+}
 }

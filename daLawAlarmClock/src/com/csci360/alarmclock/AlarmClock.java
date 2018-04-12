@@ -58,7 +58,8 @@ public class AlarmClock {
                 
                 if (seconds == minLng) 
                 { 
-                    runTime();
+                    sysTime.passTime();
+                    checkAlarm();
                     seconds = 0;    
                 }
             }
@@ -120,34 +121,15 @@ public class AlarmClock {
        //small change
    }
    
+   public boolean getRadioState()
+   {
+       return radio.getRadioState();
+   }
+   
    public int[] getTimeArray()
    {
        return sysTime.getTime();
    }
-   
-   private void runTime()
-   {
-       int[] ctime = sysTime.getTime();
-       
-       int newMin = ctime[1] + 1;
-       int newHr = ctime[0];
-       
-       if (newMin == 60)
-       {
-           newMin = 0;
-           newHr += 1;
-           
-           if (newHr == 24)
-           {
-               newHr = 0;
-           }
-           
-       }
-       
-       sysTime.setHour(newHr);
-       sysTime.setMinute(newMin);
-       this.checkAlarm();
-   } 
    
    public String getRadioFreq(){return Float.toString(radio.getFrequency());}
    

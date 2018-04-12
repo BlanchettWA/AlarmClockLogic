@@ -10,14 +10,10 @@ package com.csci360.alarmclock;
  * An alarming function needs to happen. 
  */
 
-//TODO: Fix frequency refresh on band toggle
-//TODO: truncate extra float on freq display
-
 
 import java.util.Timer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import java.util.TimerTask;
 import javafx.application.Platform;
@@ -60,6 +56,7 @@ public class GraphicalUIController {
                     
                     Platform.runLater(() -> 
                     {timeLabel.setText(sys.getCurrentTime());
+                    refreshLights();
                     
                     if (sys.checkIfAlarming())
                     {
@@ -80,49 +77,13 @@ public class GraphicalUIController {
     private Label timeLabel;
 
     @FXML
-    private Button volUpButton;
-
-    @FXML
-    private Button volDownButton;
-
-    @FXML
-    private Button snoozeButton;
-
-    @FXML
-    private Button alarmOffButton;
-
-    @FXML
     private Label bandLabel;
 
     @FXML
     private Label freqLabel;
 
     @FXML
-    private Button alarm1ToggleButton;
-
-    @FXML
-    private Button alarm2ToggleButton;
-
-    @FXML
-    private Button setAlarm1Button;
-
-    @FXML
-    private Button setAlarm2Button;
-    
-    @FXML
     private Rectangle clockBackground;
-
-    @FXML
-    private Button sysTimeSetButton;
-
-    @FXML
-    private Button toggleBandButton;
-
-    @FXML
-    private Button stationUpButton;
-
-    @FXML
-    private Button stationDownButton;
 
     @FXML
     private Label alarm1Label;
@@ -211,7 +172,7 @@ public class GraphicalUIController {
         sys.setAlarm(0, (int) rst[0], (int) rst[1], (boolean) rst[2]);
         
         Platform.runLater(()-> {alarm1Label.setText(sys.getAlarmTime(0));
-        alarm1Light.setFill(Color.GREEN);});
+        refreshLights();});
     }
     
     @FXML
@@ -222,7 +183,7 @@ public class GraphicalUIController {
         sys.setAlarm(1, (int) rst[0], (int) rst[1], (boolean) rst[2]);
         
         Platform.runLater(()-> {alarm2Label.setText(sys.getAlarmTime(1));
-        alarm2Light.setFill(Color.GREEN);});
+        refreshLights();});
     }
     
     
@@ -233,17 +194,17 @@ public class GraphicalUIController {
     void toggleAlarmOne(ActionEvent event){
         if (!sys.getAlarmState(0)){
             sys.enableAlarm(0);
-            
-            Platform.runLater(() -> {alarm1Light.setFill(Color.GREEN);});
+            refreshLights();
 
         }
-        else{
+        else
+        {
             sys.disableAlarm(0);
             
                   Platform.runLater(() -> 
         {
-            alarm1Light.setFill(Color.BLACK);
             clockBackground.setFill(Color.BLACK);
+            refreshLights();
             adaptLightColors(Color.BLACK);
         
         });
@@ -257,44 +218,36 @@ public class GraphicalUIController {
     void togleAlarmTwo(ActionEvent event){
         if (!sys.getAlarmState(1)){
             sys.enableAlarm(1);
-            
-                        Platform.runLater(() -> {alarm2Light.setFill(Color.GREEN);
-            });
 
         }
         
-        else{
+        else
+        {
             sys.disableAlarm(1);
             
                   Platform.runLater(() -> 
         {
-            alarm2Light.setFill(Color.BLACK);
             clockBackground.setFill(Color.BLACK);
+            refreshLights();
             adaptLightColors(Color.BLACK);
         
         });
 
         }
         
-                Platform.runLater(() -> 
-        {
-            Paint curColor = alarm2Light.getFill();
-            
-            if (curColor == Color.BLACK){alarm2Light.setFill(Color.GREEN);}
-                else{alarm2Light.setFill(Color.BLACK);}
-        
-        });
+        refreshLights();
 
     }
     
     @FXML
     void silenceAlarm(ActionEvent event){
         sys.stopAlarm();
-        
+
         
               Platform.runLater(() -> 
         {
             clockBackground.setFill(Color.BLACK);
+            refreshLights();
             adaptLightColors(Color.BLACK);
         
         });
@@ -305,13 +258,13 @@ public class GraphicalUIController {
     void snoozeAlarm(ActionEvent event){
         sys.snoozeAlarm();
         
-        Platform.runLater(() -> 
+              Platform.runLater(() -> 
         {
             clockBackground.setFill(Color.BLACK);
+            refreshLights();
             adaptLightColors(Color.BLACK);
         
         });
-        //System.out.println("snoozed the alarm");
     }
     
     
@@ -319,15 +272,13 @@ public class GraphicalUIController {
     {
         Platform.runLater(() -> 
         {
+            refreshLights();
             Paint curBg = clockBackground.getFill();
             
             if (curBg != Color.RED){clockBackground.setFill(Color.RED);
             adaptLightColors(Color.RED);
             }
-            
-            
-            
-            
+                   
             else {clockBackground.setFill(Color.ORANGE);
             adaptLightColors(Color.ORANGE);}
         
@@ -345,5 +296,21 @@ public class GraphicalUIController {
           
         });
     }
+    
+    void refreshLights()
+    {
+         Platform.runLater(() -> 
+        {
+           
+        if (sys.getRadioState()){radioPowerLight.setFill(Color.GREEN);}
+        else {radioPowerLight.setFill(Color.BLACK);}
+        
+        if (sys.getAlarmState(0)){alarm1Light.setFill(Color.GREEN);}
+        else {alarm1Light.setFill(Color.BLACK);}
+        
+        if (sys.getAlarmState(1)){alarm2Light.setFill(Color.GREEN);}
+        else {alarm2Light.setFill(Color.BLACK);}
+    });
           
     }
+}

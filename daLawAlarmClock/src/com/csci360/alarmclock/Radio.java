@@ -7,28 +7,54 @@ package com.csci360.alarmclock;
 
 //FM 88.00 to 108.00
 
-import java.text.DecimalFormat;
 
 //AM 540 to 1700
 
 //AM frequencies are ints
 //Round all FM frequencies to one decimal point
+import java.text.DecimalFormat;
+
+import java.io.File;
+import java.util.Random;
+import javafx.scene.media.Media;  
+import javafx.scene.media.MediaPlayer; 
+
+
 
 public class Radio 
 {
-    private int volume;
+    private double volume;
     private float fmFreq;
     private int amFreq;
     private boolean amBand;
     private boolean isPlaying;
+    
+    private Random gen;
+    boolean audioCreated = false;
+    
+    private MediaPlayer audio;
+    
+    private Media[] songList = new Media[8];
  
     public Radio()
     {
-        volume = 5;
+        volume = .50;
         amBand = false;
         fmFreq = (float) 94.5;
         amFreq = 750;
         isPlaying = false;
+        
+        gen = new Random();
+        
+        songList[0] = new Media(new File("media/am1.mp3").toURI().toString());
+        songList[1] = new Media(new File("media/am2.mp3").toURI().toString());
+        songList[2] = new Media(new File("media/am3.mp3").toURI().toString());
+        songList[3] = new Media(new File("media/am4.mp3").toURI().toString());
+        songList[4] = new Media(new File("media/fm1.mp3").toURI().toString());
+        songList[5] = new Media(new File("media/fm2.mp3").toURI().toString());
+        songList[6] = new Media(new File("media/fm3.mp3").toURI().toString());
+        songList[7] = new Media(new File("media/fm4.mp3").toURI().toString());
+        
         
     };
     
@@ -36,31 +62,33 @@ public class Radio
     {
         if (dir < 0)
         {
-            volume -= 1;
+            volume -= .05;
             
             if (volume < 0){volume = 0;}
             
         }
         else
         {
-            volume += 1;
+            volume += .05;
             
-            if (volume > 10){volume = 10;}
+            if (volume > 1.0){volume = 1.0;}
         }
+        audio.setVolume(volume);
         System.out.println("Volume is now " + volume);
     };
     
     
     public int getVolume()
     {
-        return volume;
+        return (int)(volume * 10);
     }
             
     public void toggleBand()
     {
         if (amBand){amBand = false;}
         else {amBand = true;}
-    };
+        playMedia();   
+    }
     
     public String getBand()
     {
@@ -70,6 +98,7 @@ public class Radio
     
     public void adjustFrequency(int dir)
     {
+        playMedia();
         //Adjusting AM Frequency
         if (amBand)
         {
@@ -94,6 +123,7 @@ public class Radio
         {
             if (dir < 0)
             {
+                
                 fmFreq -= 0.10;
                 
                 if (fmFreq < 88){fmFreq = 88;}
@@ -123,16 +153,16 @@ public class Radio
     
     public void startRadio()
     {
-        System.out.println("Radio is playing");
-        
-        //Code to begin playing Radio here
         isPlaying = true;
-    };
+        playMedia();
+    }
     
     public void stopRadio()
     {
         System.out.println("Radio is turned off");
         isPlaying = false;
+        
+        audio.stop();
     };
     
     public void togglePower()
@@ -144,6 +174,46 @@ public class Radio
     public boolean getRadioState()
     {
         return isPlaying;
+    }
+    
+    public void triggerRadioAlarm()
+    {
+        volume = 1.0;
+        startRadio();        
+    }
+    
+    private void playMedia()
+    {
+
+        int song = gen.nextInt(8);
+        
+                if ((amBand) && (song > 3))
+                {
+                    song = gen.nextInt(4);
+                }
+                
+                if ((!amBand) && (song < 4))
+                {
+                    while (song < 4)
+                    {
+                        song = gen.nextInt(8);
+                    }
+                }
+                
+                if (audioCreated)
+                {
+                    audio.stop();
+                    audio.dispose();
+                }
+            
+            audio = new MediaPlayer(songList[song]);
+            audioCreated = true;
+            
+            
+            audio.setVolume(volume);
+                        
+            audio.setOnEndOfMedia(new Runnable() {public void run() {playMedia();}});   
+            audio.play();
     }
     
     

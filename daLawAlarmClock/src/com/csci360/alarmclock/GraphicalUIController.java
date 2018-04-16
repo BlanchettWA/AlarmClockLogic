@@ -21,6 +21,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
+import java.io.File;
+import javafx.scene.media.Media;  
+import javafx.scene.media.MediaPlayer; 
+import javafx.util.Duration;
+
 
 
 
@@ -31,10 +36,20 @@ public class GraphicalUIController {
         Timer syst;
         int seconds = 0;
         
+        boolean alarmPlaying = false;
+        
+                    File file=new File("media/wtf.mp3");
+            Media m = new Media(file.toURI().toString());
+            MediaPlayer player = new MediaPlayer(m);
+            
+
+        
 
         
         public void initialize() throws Exception
         {
+            
+            
             //Initialize the display labels
             Platform.runLater(() -> 
             {
@@ -242,6 +257,8 @@ public class GraphicalUIController {
     @FXML
     void silenceAlarm(ActionEvent event){
         sys.stopAlarm();
+        alarmPlaying = false;
+        player.stop();
 
         
               Platform.runLater(() -> 
@@ -257,6 +274,8 @@ public class GraphicalUIController {
     @FXML
     void snoozeAlarm(ActionEvent event){
         sys.snoozeAlarm();
+        alarmPlaying = false;
+        player.stop();
         
               Platform.runLater(() -> 
         {
@@ -270,8 +289,24 @@ public class GraphicalUIController {
     
     void showAlarming()
     {
+
+        
         Platform.runLater(() -> 
         {
+                    if (!alarmPlaying)
+        {
+            player.setOnEndOfMedia(new Runnable() {
+       public void run() {
+         player.seek(Duration.ZERO);
+         alarmPlaying = true;
+       }
+   });
+         player.play();            
+
+                       
+        }
+            System.out.println(player.getStatus());
+                    
             refreshLights();
             Paint curBg = clockBackground.getFill();
             

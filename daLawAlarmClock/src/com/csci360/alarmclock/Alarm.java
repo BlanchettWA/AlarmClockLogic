@@ -2,6 +2,7 @@
 package com.csci360.alarmclock;
 
 
+
 public class Alarm {
     
     private Time triggerTime;
@@ -16,8 +17,8 @@ public class Alarm {
     
     public Alarm()
     {
-        triggerTime = new Time(5,23);
-        snoozeTime = new Time(5,28);   
+        triggerTime = new Time(4,25);
+        snoozeTime = new Time(4,30);   
     }
     
     public void specifyTime(int h, int m)

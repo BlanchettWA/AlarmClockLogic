@@ -286,6 +286,27 @@ public class AlarmClock {
        return (is1Alarming || is2Alarming);
    }
    
+   public boolean determineBeepSound()
+   {
+       boolean result = true;
+       
+       if (is1Alarming)
+       {
+           result = alarmArry[0].getSoundType();
+       }
+       else
+       {
+           result = alarmArry[1].getSoundType();
+       }
+       
+       return result;   
+   }
+   
+   public void useRadioAlarm()
+   {
+       radio.triggerRadioAlarm();
+   }
+   
    public String getAlarmInfo(int alm)
    {
        String almTime = formatTime(alarmArry[alm].getTriggerTime());

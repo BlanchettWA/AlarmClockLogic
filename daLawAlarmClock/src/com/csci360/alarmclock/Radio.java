@@ -74,7 +74,6 @@ public class Radio
             if (volume > 1.0){volume = 1.0;}
         }
         audio.setVolume(volume);
-        System.out.println("Volume is now " + volume);
     };
     
     
@@ -159,7 +158,6 @@ public class Radio
     
     public void stopRadio()
     {
-        System.out.println("Radio is turned off");
         isPlaying = false;
         
         audio.stop();

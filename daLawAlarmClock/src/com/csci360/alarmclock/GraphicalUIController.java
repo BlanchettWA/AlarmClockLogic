@@ -35,8 +35,8 @@ public class GraphicalUIController {
         AlarmClock sys = new AlarmClock();
         Timer syst;
         int seconds = 0;
+        boolean radioAlarming = false;
         
-        boolean alarmPlaying = false;
         
                     File file=new File("media/wtf.mp3");
             Media m = new Media(file.toURI().toString());
@@ -144,11 +144,10 @@ public class GraphicalUIController {
         sys.toggleRadioPower();
         
         Platform.runLater(() -> 
-        {
-            Paint curColor = radioPowerLight.getFill();
-            
-            if (curColor == Color.BLACK){radioPowerLight.setFill(Color.GREEN);}
-                else{radioPowerLight.setFill(Color.BLACK);}
+        {            
+            clockBackground.setFill(Color.BLACK);
+            refreshLights();
+            adaptLightColors(Color.BLACK);
         
         });
         
@@ -257,8 +256,8 @@ public class GraphicalUIController {
     @FXML
     void silenceAlarm(ActionEvent event){
         sys.stopAlarm();
-        alarmPlaying = false;
         player.stop();
+        radioAlarming = false;
 
         
               Platform.runLater(() -> 
@@ -274,9 +273,8 @@ public class GraphicalUIController {
     @FXML
     void snoozeAlarm(ActionEvent event){
         sys.snoozeAlarm();
-        alarmPlaying = false;
         player.stop();
-        
+        radioAlarming = false;
               Platform.runLater(() -> 
         {
             clockBackground.setFill(Color.BLACK);
@@ -288,25 +286,34 @@ public class GraphicalUIController {
     
     
     void showAlarming()
+    
     {
-
         
-        Platform.runLater(() -> 
-        {
-                    if (!alarmPlaying)
+        if (sys.determineBeepSound())
         {
             player.setOnEndOfMedia(new Runnable() {
        public void run() {
          player.seek(Duration.ZERO);
-         alarmPlaying = true;
+         player.play(); 
        }
+       
    });
-         player.play();            
-
-                       
+            player.play();
+            
         }
-            System.out.println(player.getStatus());
-                    
+        else
+        {
+            if (!radioAlarming)
+            {
+                sys.useRadioAlarm();
+                radioAlarming = true;
+            }
+        }
+        
+
+        
+        Platform.runLater(() -> 
+        {
             refreshLights();
             Paint curBg = clockBackground.getFill();
             
